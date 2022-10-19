@@ -28,10 +28,9 @@ func filterGopher(upstream, downstream chan string) {
 			downstream <- ""
 			return
 		}
-		if !strings.Contains(item, "bad") {
-			if itemCheck != item {
-				downstream <- item
-			}
+		if !strings.Contains(item, "bad") && itemCheck != item {
+
+			downstream <- item
 		}
 		itemCheck = item
 	}
